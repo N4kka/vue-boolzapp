@@ -50,19 +50,68 @@
                             <p>Attiva notifiche desktop</p>                        
                         </div>
                     </div>
-                    <div class="search">
-                        <div class="search-icon gray">
-                            <i class="fas fa-search"></i>
+                    <div class="chat-message">
+                        <div class="search">
+                            <div class="gray">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <span>Cerca o inizia una nuova chat</span>
                         </div>
-                        <span>Cerca o inizia una nuova chat</span>
                     </div>
-                    <div class="chat">
-
+                    <div class="last-chat">
+                        <div class="chat-message" v-for="element in contacts">
+                            <img :src=" 'img/avatar' + element.avatar + '.jpg' " alt="Michele">
+                            <div class="message">
+                                <h4>{{element.name}}</h4>
+                                <p class="gray fs-8">Ultimo messaggio inviato</p>
+                            </div>
+                            <div class="message-time gray">
+                                <p>12:00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="right-section">
                     <div class="actual-conversation">
-
+                        <img :src=" 'img/avatar' + contacts[0].avatar + '.jpg' " alt="Michele">
+                        <div class="actual-message">
+                            <h4>{{contacts[0].name}}</h4>
+                            <p class="fs-8">Ultimo accesso oggi alle 12:00</p>
+                        </div>
+                        <div class="search-icon gray">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                    </div>
+                    <div class="main-content">
+                        <div class="us-msg">
+                            <div class="user-message">
+                                <p>{{ contacts[0].messages[0].message }}</p>
+                                <div class="time">
+                                    <span class="gray">15:30</span>
+                                </div>
+                            </div>
+                            <div class="user-message">
+                                <p>{{ contacts[0].messages[1].message }}</p>
+                                <div class="time">
+                                    <span class="gray">15:50</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fnd-msg">
+                            <div class="friend-message">
+                                <p>{{ contacts[0].messages[2].message }}</p>
+                                <div class="time-second">
+                                    <span class="gray">16:15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type-message darkgray">
+                        <i class="far fa-smile"></i>
+                        <input class="search" type="text" placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
                     </div>
                 </div>
             </div>
