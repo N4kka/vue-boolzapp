@@ -130,7 +130,7 @@ body {
 /* FILTER MESSAGE */
 .search {
     width: 90%;
-    height: 30px;
+    height: 50px;
     display: flex;
     align-items: center;
     border: 1px solid lightgray;
@@ -140,9 +140,12 @@ body {
     background-color: white;
 }
 
-.search span {
-    font-size: .8rem;
+.search input {
+    width: 80%;
+    padding: 5px;
+    border: 0;
     margin-left: 30px;
+    font-size: .8rem;
 }
 
 .search-icon i {
@@ -230,7 +233,7 @@ body {
 
 /* USER MESSAGE */
 .us-msg {
-    display: grid;
+    display: flex;
     justify-content: flex-end;
     padding: 2rem 5rem 0;
 }
@@ -259,7 +262,7 @@ body {
 
 /* FRIEND MESSAGE */
 .fnd-msg {
-    display: grid;
+    display: flex;
     justify-content: flex-start;
     padding: 1rem 5rem;
 }

@@ -163,9 +163,24 @@ const app = new Vue ({
                     }
                 ],
             }
-        ],        
+        ],  
+        currentContact: 0,
+        activeChat: 0,
+        newMessageTyped: '' 
     },
     methods: {
-
+        newMessage () {
+            if(this.newMessageTyped) {
+                this.contacts.push({
+                    messages: [
+                    {
+                        message: this.newMessageTyped,
+                        status: 'sent'
+                    }
+                    ]
+                })
+            }
+            this.newMessageTyped = '';
+        }
     }
 })

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- VUE SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <title>Boolzap</title>
+    <title>Boolzapp</title>
     <!-- FONT AWESOME -->
     <script src="https://kit.fontawesome.com/fde1896e35.js" crossorigin="anonymous"></script>
     <!-- GOOGLE FONTS -->
@@ -55,7 +55,8 @@
                             <div class="gray">
                                 <i class="fas fa-search"></i>
                             </div>
-                            <span>Cerca o inizia una nuova chat</span>
+                            <label for="filter"></label>
+                            <input type="text" id="filter" placeholder="Cerca o inizia una nuova chat"></input>
                         </div>
                     </div>
                     <div class="last-chat">
@@ -85,19 +86,19 @@
                         </div>
                     </div>
                     <div class="main-content">
-                        <div class="us-msg">
+                        <div class="us-msg" v-for="element in contacts">
                             <div class="user-message">
-                                <p>{{ contacts[0].messages[0].message }}</p>
+                                <p>{{ element.messages[0].message }}</p>
                                 <div class="time">
                                     <span class="gray">15:30</span>
                                 </div>
                             </div>
-                            <div class="user-message">
-                                <p>{{ contacts[0].messages[1].message }}</p>
-                                <div class="time">
-                                    <span class="gray">15:50</span>
-                                </div>
-                            </div>
+                            <!-- <div class="user-message"> -->
+                                <!-- <p>{{ contacts[0].messages[1].message }}</p> -->
+                                <!-- <div class="time"> -->
+                                    <!-- <span class="gray">15:50</span> -->
+                                <!-- </div> -->
+                            <!-- </div> -->
                         </div>
                         <div class="fnd-msg">
                             <div class="friend-message">
@@ -110,7 +111,13 @@
                     </div>
                     <div class="type-message darkgray">
                         <i class="far fa-smile"></i>
-                        <input class="search" type="text" placeholder="Scrivi un messaggio">
+                        <input 
+                            class="search"
+                            @keyup.enter="newMessage" 
+                            v-model="newMessageTyped"
+                            type="text"
+                            placeholder="Scrivi un messaggio"
+                        >
                         <i class="fas fa-microphone"></i>
                     </div>
                 </div>
